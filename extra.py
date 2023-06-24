@@ -144,6 +144,17 @@ def rmse(solution):
     fitness = math.sqrt(error / q)
     return fitness
 
+def mse(solution):
+    error = 0
+    q = 0
+    for p in dataset:
+        for k in range(len(p)):
+            error += abs(
+                p['rssi'][k] + solution[0] + math.log10(p['distance'][k]) * solution[1] ) ** 2
+            q += 1
+    fitness = error / q
+    return fitness
+
 
 p = [m.intercept_]
 dataset.clear()
@@ -152,6 +163,7 @@ dataset.append(p3)
 p.extend(list(m.coef_))
 print("Average error :", average_error(p))
 print("Root mean square error :", rmse(p))
+print(mse(p))
 
 
 

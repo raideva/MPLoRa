@@ -70,14 +70,14 @@ def rmse(solution):
             error +=  abs(
                 -p['PL'][k] + solution[0] + math.log10(p['Dist'][k]) * solution[1] + math.log10(p['hr'][k]) *
                 solution[2] + solution[3] * math.log10(
-                    p['hr'][k]) * math.log10(p['Dist'][k])) ** 2
+                    p['hr'][k]) * math.log10(p['Dist'][k]))
             q += 1
-    fitness = math.sqrt(error / q)
+    fitness = error / q
     return fitness
 
 
 p = [m.intercept_]
 
 p.extend(list(m.coef_))
-print("Average error :", average_error(p))
+# print("Average error :", average_error(p))
 print("Root mean square error :", rmse(p))

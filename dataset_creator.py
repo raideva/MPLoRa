@@ -73,6 +73,12 @@ for i in range(940 * 713):
     if v[i][0] == v[i][1] == v[i][2] == 0:
         i1_data[i % 940, i // 940] = (255, 0, 255)
 
+im = Image.open('data/img copy 5.png')
+v = list(im.getdata())
+for i in range(940 * 713):
+    if v[i][0] == v[i][1] == v[i][2] == 0:
+        i1_data[i % 940, i // 940] = (255, 255, 255)
+
 
 
 

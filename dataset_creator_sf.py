@@ -1,6 +1,6 @@
 import serial
 
-ser = serial.Serial('/dev/cu.usbserial-1420', 9600)
+ser = serial.Serial('/dev/cu.usbserial-1420', 115200)
 p = open("data/dataset_sf_19.csv", "a")
 p.write("index,rssi,snr,sf")
 p.write("\n")
