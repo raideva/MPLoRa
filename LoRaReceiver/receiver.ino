@@ -39,9 +39,9 @@ void loop() {
     Serial.print(inString); 
     // int f = 0;
 
-    if((counter + 1) % 80 == 0) {sf += 1;
+    if((counter + 1) % 100 == 0) {sf += 1;
     sf %= 6;
-    LoRa.setSpreadingFactor(11- sf);}
+    LoRa.setSpreadingFactor(12- sf);}
     inString = "";  
     counter++; 
   }

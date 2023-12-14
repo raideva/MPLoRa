@@ -1,7 +1,7 @@
 import serial
 
-ser = serial.Serial('/dev/cu.usbserial-1420', 115200)
-p = open("data/dataset_sf_19.csv", "a")
+ser = serial.Serial('/dev/cu.usbserial-1420', 9600)
+p = open("data/dataset_dummy.csv", "a")
 p.write("index,rssi,snr,sf")
 p.write("\n")
 while 1:
@@ -17,3 +17,5 @@ while 1:
             p.write(str(v[-1]) + "\n")
     except:
         print("e")
+
+

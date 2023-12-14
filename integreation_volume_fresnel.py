@@ -20,4 +20,3 @@ def integrate(hr, ht, d, steps=1000):
         t += b
     return s / t
 
-# print(integrate(4.5, 4.5, 88))

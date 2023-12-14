@@ -1,0 +1,4 @@
+dataset,distance,mean,variance,okumara_rmse,log_distance_rmse,proposed_model_rmse,lebanon_rural_rmse,lebanon_campus_rmse
+1,512,-107.303,0.601,1.83,20.79,1.98,4.54,15.82
+2,700,-106.88,0.48,8.26,18.23,1.97,8.63,20.46
+3,780,-105.37,0.89,7.89,16.00,1.079,11.46,23.46

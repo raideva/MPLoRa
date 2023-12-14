@@ -195,7 +195,6 @@ def cal_obs(st:str):
             l_ins = p_ins * 84 / s[0]
             print(e, height, width, length, l_ins)
             out.append([height, l_ins])
-            i2.show()
         except Exception as ex:
             template = "An exception of type {0} occurred. Arguments:\n{1!r}"
             message = template.format(type(ex).__name__, ex.args)
