@@ -18,23 +18,6 @@ Outputs:
 - Building footprint image with estimated heights coded to pixel values (divided by 1000 to satisfy data structure)
     Note: To retrieve proper values for use in GIS software, multiply pixel values by 1000
 
-Author:
-- Lonnie Byrnside III
-
-Additional Notes:
-- Shadow-overlapping algorithm inspired by:
-    N. Kadhim and M. Mourshed
-    A shadow-overlapping algorithm for estimating building heights from VHR satellite images
-    2018
-- Boundary tracing algorithm pulled from:
-    Sebastian Wallkötter
-    https://github.com/FirefoxMetzger/ipynb_boundary_tracing
-    2020
-- Spatial reference management function pulled from:
-    Schuyler Erle, Frank Warmerdam, Even Rouault
-    https://svn.osgeo.org/gdal/trunk/gdal/swig/python/samples/gdalcopyproj.py
-    2005
-
 """
 
 import os
@@ -181,20 +164,11 @@ def trace_boundary(image):
 #------------------------------------------------------------------
 # INITIALIZE IMAGE DATA
 
-# shadow_img_path = input("Enter shadow image path: ")
-# footpt_img_path = input("Enter footprint image path: ")
-# output_img_fldr = input("Enter output folder path: ")
-# output_img_name = input("Enter output image name: ")
-# output_img_path = os.path.join(output_img_fldr, output_img_name + ".tif")
-#
-# cell_size_feet = float(input("Enter image cell size in feet: ")) #1.607612 # image resolution: 1 pixel = 1.607612 feet
-# elevation = float(input("Enter image solar elevation angle: ")) # 50.01
-# azimuth = float(input("Enter image solar azimuth angle: ")) # 167
 
-
-shadow_img_path = "/Users/raideva/Desktop/Considered_models/satellite_Deb_and_Suny.tif"
-footpt_img_path = "/Users/raideva/Desktop/Considered_models/Footprint.tif"
-output_img_fldr = "/Users/raideva/Desktop/Considered_models/Shadow-Overlapping_Building_Height_Estimation_Toolset/history"
+# Ensure all the parameters are correct as per input
+shadow_img_path = "/Users/raideva/Desktop/btp-propagation model/Height_estimation/satellite_Deb_and_Suny.tif"
+footpt_img_path = "/Users/raideva/Desktop/btp-propagation model/Height_estimation/Footprint.tif"
+output_img_fldr = "/Users/raideva/Desktop/btp-propagation model/Height_estimation/Shadow-Overlapping_Building_Height_Estimation_Toolset/history"
 output_img_name = "heights"
 output_img_path = os.path.join(output_img_fldr, output_img_name + ".tif")
 
@@ -319,20 +293,6 @@ for region in regionprops(label_image):
                 strikes += 1
                 if strikes == 1:
                     break
-
-        # fig, ax = plt.subplots(figsize=(10, 6))
-        # ax.imshow(image_true)
-        #
-        # ax.set_axis_off()
-        # plt.tight_layout()
-        # plt.show()
-        #
-        # fig, ax = plt.subplots(figsize=(10, 6))
-        # ax.imshow(return_img)
-        #
-        # ax.set_axis_off()
-        # plt.tight_layout()
-        # plt.show()
 
         del return_img
 

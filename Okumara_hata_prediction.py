@@ -6,7 +6,7 @@ class Okumara_hata:
         self.fc = freq
         pass
 
-    def predict(self, h_e, h_r, d, fc=None):
+    def predict(self, p, k, fc=None):
         """
         fc: carrier frequency in MHz
         h_e: height of the effective antenna in meters
@@ -18,7 +18,7 @@ class Okumara_hata:
             fc = self.fc
             
         # Constants for suburban areas
-        pl = 69.55 + 26.16 * math.log10(fc) - 13.8 * math.log10(h_e) - 1.1 * math.log10(fc - 0.7) * h_r - (
-                1.56 * math.log10(fc) - 0.8) + (44.9 - 6.55 * math.log10(h_e)) * math.log10(d)
+        pl = 69.55 + 26.16 * math.log10(fc) - 13.8 * math.log10(p['hr'][k]) - 1.1 * math.log10(fc - 0.7) * p['ht'][k] - (
+                1.56 * math.log10(fc) - 0.8) + (44.9 - 6.55 * math.log10(p['hr'][k])) * math.log10(p['distance'][k])
 
         return 110 - pl

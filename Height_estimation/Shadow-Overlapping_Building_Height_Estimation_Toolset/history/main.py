@@ -5,7 +5,7 @@ from PIL import Image
 import cv2
 from collections import defaultdict
 
-img = io.imread("/Users/raideva/Desktop/Considered_models/Shadow-Overlapping_Building_Height_Estimation_Toolset/history/heights.tif")
+img = io.imread("/Users/raideva/Desktop/btp-propagation model/Height_estimation/Shadow-Overlapping_Building_Height_Estimation_Toolset/history/heights.tif")
 
 print(type(img))
 print(img.shape)

@@ -24,6 +24,7 @@ class ProposedModel:
 
         self.x = numpy.array(x)
         self.y = numpy.array(y)
+        self.coefs = None
 
     def train(self):
         m = LinearRegression()
@@ -32,4 +33,11 @@ class ProposedModel:
         print("R2 score fit: ", r_sq)
         ret = [m.intercept_]
         ret.extend(m.coef_)
+        self.coefs = ret
         return ret
+    
+    def predict(self, p, k, bias):
+        if self.coefs is None:
+            return "Train first"
+        return self.coefs[0] + math.log10(p['distance'][k]) * self.coefs[1] + math.log10(p['hr'][k]) * self.coefs[2] + math.log10(p['ht'][k]) * -3.2 + self.coefs[3] * math.log10(
+            (p['hr'][k] + p['ht'][k]) / 2) * math.log10(p['distance'][k]) + bias
